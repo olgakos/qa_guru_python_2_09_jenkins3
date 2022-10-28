@@ -7,7 +7,8 @@ from tests.test_data.users import student
 def test_submit_student_registration_form(setup_browser):
     browser = setup_browser
     registration_form.given_opened(browser)
-    browser.driver.set_window_size(1920, 1080) #важно при рекламе!
+    #browser.driver.set_window_size(1920, 1080) #важно при рекламе!
+    browser.driver.set_window_size(1920, 1500) #важно при рекламе!
 
     # WHEN
 
