@@ -9,7 +9,7 @@ from demoqa_tests.utils import path
 from tests.test_data.users import Subject
 
 #---------------1
-```
+ '''
 @pytest.fixture(autouse=True)
 def browser_management():
     browser.config.timeout = 3
@@ -18,7 +18,7 @@ def browser_management():
     browser.config.window_width = 1024
     browser.config.window_height = 2000
     yield
-```
+ '''
 #---------------2  
     
 def given_opened(browser):
