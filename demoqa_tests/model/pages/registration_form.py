@@ -10,9 +10,18 @@ from tests.test_data.users import Subject
 
 def given_opened(browser):
     browser.open('http://demoqa.com/automation-practice-form')
-    # ads = ss('[id^=google_ads][id$=container__]')
-    # if ads.with_(timeout=15).wait.until(have.size_greater_than_or_equal(3)):
-    #     ads.perform(command.js.remove)
+'''
+    #рекламные блоки(!)
+    #1
+    ads = ss('[id^=google_ads][id$=container__]')
+        if ads.with_(timeout=15).wait.until(have.size_greater_than_or_equal(3)):
+            ads.perform(command.js.remove)
+'''
+    #2     
+    ads = browser.all('[id^=google_ads_][id$=container__]')
+        if ads.wait.until(have.size_less_than_or_equal(4)):
+            ads.perform(command.js.remove)            
+  
 
 #@allure.step('Add subjects {values}')
 def add_subjects(values: Tuple[Subject], browser):
