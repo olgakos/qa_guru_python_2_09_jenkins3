@@ -7,11 +7,9 @@ from tests.test_data.users import student
 def test_submit_student_registration_form(setup_browser):
     browser = setup_browser
     registration_form.given_opened(browser)
-    #browser.driver.set_window_size(1920, 1080) #важно при рекламе!
-    browser.driver.set_window_size(1920, 1500) #важно при рекламе!
+    browser.driver.set_window_size(1920, 1500) #размер окна важен, если есть всплывающая реклама
 
     # WHEN
-
     with allure.step("Fill form"):
         registration_form.set_field('#firstName', student.name, browser)
         registration_form.set_field('#lastName', student.last_name, browser)
@@ -20,19 +18,16 @@ def test_submit_student_registration_form(setup_browser):
         registration_form.set_field('#userNumber', student.user_number, browser)
         registration_form.scroll_to_bottom(browser)
         registration_form.set_birth_date(student.birth_month, student.birth_year, student.birth_day, browser)
-        '''
         # OR
-        browser.element('#dateOfBirthInput').send_keys(Keys.CONTROL, 'a').type('01 Jan 2000').press_enter()
-        '''
+        #browser.element('#dateOfBirthInput').send_keys(Keys.CONTROL, 'a').type('01 Jan 2000').press_enter()
         registration_form.add_subjects(student.subjects, browser)
         registration_form.set_hobbies(student.hobbies, browser)
         registration_form.scroll_to_bottom(browser)
         registration_form.send_file(student.picture_file, browser)
         registration_form.set_field('#currentAddress', student.current_address, browser)
-
         registration_form.set_state(student.state, browser)
         registration_form.set_city(student.city, browser)
-
+    with allure.step("Press Submit button"):
         registration_form.submit(browser)
 
     # THEN
