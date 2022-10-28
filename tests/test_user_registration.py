@@ -62,8 +62,8 @@ def test_submit_student_registration_form(setup_browser):
                 ('Gender', student.gender.value),
                 ('Mobile', student.user_number),
                 ('Date of Birth', f'{student.birth_day} {student.birth_month},{student.birth_year}'),
-                ('Subjects', 'History'),
-                ('Hobbies', 'Sports'),
+                ('Subjects', 'History'), #Это ожидаемое значение
+                ('Hobbies', 'Reading'),  #Это ожидаемое значение
                 ('Picture', student.picture_file),
                 ('Address', student.current_address),
                 ('State and City', f'{student.state} {student.city}'),
