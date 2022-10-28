@@ -38,7 +38,7 @@ def test_submit_student_registration_form(setup_browser):
         registration_form.set_birth_date(student.birth_month, student.birth_year, student.birth_day, browser)
         '''
         # OR something like
-        browser.element('#dateOfBirthInput').send_keys(Keys.CONTROL, 'a').type('28 Mar 1995').press_enter()
+        browser.element('#dateOfBirthInput').send_keys(Keys.CONTROL, 'a').type('01 Jan 2000').press_enter()
         '''
         registration_form.add_subjects(student.subjects, browser)
         registration_form.set_hobbies(student.hobbies, browser)
