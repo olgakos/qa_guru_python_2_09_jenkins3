@@ -16,30 +16,12 @@ def test_submit_student_registration_form(setup_browser):
         registration_form.set_field('#firstName', student.name, browser)
         registration_form.set_field('#lastName', student.last_name, browser)
         registration_form.set_field('#userEmail', student.email, browser)
-        registration_form.set_gender(student.gender.value, browser)
-        '''
-        # OR
-        gender_male = browser.element('[for=gender-radio-1]')
-        gender_male.click()
-        # OR
-        gender_male = browser.element('[for=gender-radio-1]')
-        gender_male.click()
-        # OR
-        browser.element('[id^=gender-radio][value=Male]').perform(command.js.click)
-        browser.element('[id^=gender-radio][value=Male]').element(
-            './following-sibling::*'
-        ).click()
-        # OR better:
-        browser.element('[id^=gender-radio][value=Male]').element('..').click()
-        # OR
-        browser.all('[id^=gender-radio]').element_by(have.value('Male')).element('..').click()
-        browser.all('[id^=gender-radio]').by(have.value('Male')).first.element('..').click()
-        '''
+        registration_form.set_gender(student.gender.value, browser)       
         registration_form.set_field('#userNumber', student.user_number, browser)
         registration_form.scroll_to_bottom(browser)
         registration_form.set_birth_date(student.birth_month, student.birth_year, student.birth_day, browser)
         '''
-        # OR something like
+        # OR
         browser.element('#dateOfBirthInput').send_keys(Keys.CONTROL, 'a').type('01 Jan 2000').press_enter()
         '''
         registration_form.add_subjects(student.subjects, browser)
