@@ -16,12 +16,12 @@ def given_opened(browser):
     ads = ss('[id^=google_ads][id$=container__]')
         if ads.with_(timeout=15).wait.until(have.size_greater_than_or_equal(4)):
             ads.perform(command.js.remove)
-
+'''
     #var22     
     ads = browser.all('[id^=google_ads_][id$=container__]')
-        if ads.wait.until(have.size_less_than_or_equal(4)):
+        if ads.wait.until(have.size_less_than_or_equal(2)):
             ads.perform(command.js.remove)            
- ''' 
+  
 
 #@allure.step('Add subjects {values}')
 def add_subjects(values: Tuple[Subject], browser):
